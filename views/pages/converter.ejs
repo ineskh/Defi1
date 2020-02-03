@@ -24,7 +24,6 @@
                         <label for = "number"> Nombre à convertir </label>
                         <input type="text" id="number" name="number"> 
                         <select id="select">
-                            <option value="nan" selected></option>
                             <option value="Decimal">Décimal</option> 
                             <option value="Hexadecimal">Hexadécimal</option>
                           </select>
@@ -52,24 +51,34 @@
                 
                 </form>
             </fieldset>
-        </section>
+
         <fieldset>
             <legend>Analyse du block</legend>
             
-            <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
+                <label for = "file"> Choisir un fichier </label>
+                <input type='file' id='fileinput'>
+                <input type='button' id='btnLoad' value="Afficher" onclick="loadFile()" class="ui blue icon button ">
 
-                <fieldset>
-                    <label for = "file"> choisir un fichier </label>
-                    <input type='file' id='fileinput'>
-                    <input type='button' id='btnLoad' value='Afficher' onclick='loadFile();' class="ui blue icon button ">
-                </fieldset>
-              </form>
+            <fieldset>
               <pre id ="json"></pre>
-          
-
-            
+            </fieldset> 
+             
         </fieldset>
+
+        <fieldset>
+            <legend>Information Blockchain à partir d'un noeud </legend>
+            
+                <label for = "BlockInfo"> Blockchain Information  </label>
+                <input type='button' id='BlockInfo' value="Afficher" onclick="blockFromNode()" class="ui blue icon button ">
+
+            <fieldset>
+              <div id ="BI"> voir console  </div>
+            </fieldset> 
+             
+        </fieldset>
+
     </div>
+
         <script type="text/javascript" src="javascript/converter.js"></script>
        
     </body>

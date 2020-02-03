@@ -17,17 +17,6 @@ function convertTo(){
     document.getElementById("varInt").value = ConvertDecimalToHexadecimalVariableLittleEndian(dec);
 
 }
-function analyse(){
-    
-    let  f = document.getElementById('file');
-    let file = f.files[0];
-    fr = new FileReader();
-    document.getElementById("jsonfile").value = fr.result;
-    
-
-
-
-}
 
 function loadFile() {
     var input, file, fr;
@@ -55,27 +44,17 @@ function loadFile() {
     }
 
     function receivedText(e) {
-      let lines = e.target.result;
-      var newArr = JSON.parse(lines);
       
-      console.log(newArr); 
+        let lines = e.target.result;
+        var newArr = JSON.parse(lines);
       
-      document.getElementById("json").innerHTML = JSON.stringify(newArr, undefined, 2);
+        console.log(newArr); 
+      
+       document.getElementById("json").innerHTML = JSON.stringify(newArr, undefined, 2);
     }
   }
 
-function load() {
-    let f = document.getElementById('file').files[0];
-    var mydata = f;
-    alert(mydata.length);
-/*
-    var div = document.getElementById('data');
 
-    for(var i = 0;i < mydata.length; i++)
-    {
-        //div.innerHTML = div.innerHTML + "<p class='inner' id="+i+">"+ mydata[i].name +"</p>" + "<br>";
-    }*/
-}
 function decimalToHexadecimal(decimal) {
 
     
@@ -210,6 +189,36 @@ function isHexa(hexa) {
 
     return (h == hexa);
 }
+function blockFromNode(){
+    
+    const Client = require('bitcoin-core');
+    const client = new Client({ 
+    network: 'regtest', 
+    username: 'bitcoin', 
+    password: 'bitcoin', 
+    port: 18443 
+    });
+    //let text,help,help2;
+    //document.getElementById('BI').innerHTML="Bilines bileel";
+   
+    help2 = client.getBlockchainInfo().then(function(help){
+        
+        console.log(help);
+
+        //document.getElementById('BI').innerHTML = help;
+
+        return help;
+    });
+
+    //console.log("hello2 ", help2);
+
+    
+        
+}
+
+
+
+blockFromNode()
 
  
  
